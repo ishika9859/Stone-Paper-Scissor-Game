@@ -72,5 +72,3 @@ This project successfully demonstrates how core web technologies can be used to 
 **Project Type:** Beginner-friendly interactive game project  
 **LinkedIn**: [connect with me](https://www.linkedin.com/in/ishika-gupta-072a79320?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BY9NNMELISj%2Byp68c8DYhXA%3D%3D)
 
-Agar chaho toh mai tumhare sab projects ke liye ek consistent GitHub README style bana sakti hoon — jisse profile portfolio jaisa lage.
-
