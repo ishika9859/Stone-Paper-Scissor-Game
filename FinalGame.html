@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GAME</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  </style>
+</head>
+<body>
+  <h1>
+    <span class="red">Stone</span>
+    <span class="yellow">Paper</span> 
+    <span class="blue">Scissor</span> 
+    <span class="green">Game</span>
+  </h1>
+
+  <button class="Stone" onclick="
+  let computerChoice = compChoice()
+  let result=getResult('Stone',computerChoice);
+  alertMsg('Stone',computerChoice,result);
+  "><img src="Images/stone.png" alt="stone image" class="images"></button>
+  
+  <button class="Paper" onclick="
+   computerChoice = compChoice()
+   result=getResult('Paper',computerChoice);
+   alertMsg('Paper',computerChoice,result);
+  "><img src="Images/paper.png" alt="paper image" class="images"></button>
+
+  <button  class="Scissor" onclick="
+   computerChoice = compChoice()
+   result=getResult('Scissor',computerChoice);
+   alertMsg('Scissor',computerChoice,result);
+  "><img src="Images/scissor.png" alt="scissor image" class="images"></button>
+
+
+   <h2 class="user-move"></h2>
+   <h2 class="computer-move"></h2>
+   <h2 class="result"></h2>
+   <h2 class="score"></h2>
+
+  <button onclick="localStorage.clear() ;
+    reset();
+   " class="reset">Reset🔄️</button>
+<script>
+  let scoreStr= localStorage.getItem('score')
+  let score;
+  reset(scoreStr)
+
+  function reset(scoreStr){
+    if(scoreStr!==undefined){
+      score=JSON.parse(scoreStr);
+    }else{
+      score={
+      win:0,
+      lost:0,
+      tie:0,
+    }
+    }
+    score.displayScore =function(){
+        return `WON:${score.win}🏆  LOST:${score.lost}🚩   TIE:${score.tie}🟰`
+      }
+    alertMsg();
+  }
+  
+  function compChoice(){
+    let computerChoice = Math.random()*3;
+    if(computerChoice>0 && computerChoice<=1){
+      return'Stone';
+    }else if(computerChoice>1 && computerChoice<=2){
+      return 'Paper'
+    }else{
+      return'Scissor'
+    }
+  }
+
+
+  function getResult(userChoice,computerChoice){
+    if (userChoice==='Stone'){  
+      if(computerChoice==='Stone'){
+        score.tie++;
+      return `IT'S  A TIE`;
+      }else if(computerChoice==='Paper'){
+        score.lost++;
+      return 'COMPUTER WON'
+      }else{
+        score.win++;
+      return 'YOU WON';
+      }
+    }else if (userChoice==='Paper'){
+      if(computerChoice==='Paper'){
+          score.tie++;
+        return `IT'S A TIE`
+      }else if(computerChoice==='Scissor'){
+        score.lost++;
+        return 'COMPUTER WON'
+      }else{
+        score.win++
+        return 'YOU WON'
+      }
+    }else{
+      if(computerChoice==='Scissor'){
+          score.tie++;
+      return `IT'S A TIE`
+      }else if(computerChoice==='Stone'){
+        score.lost++;
+      return 'COMPUTER WON'
+      }else{
+        score.win++
+      return 'YOU WON'
+      }
+    }
+  }
+
+
+  function alertMsg(userChoice,computerChoice,result){
+    localStorage.setItem('score',JSON.stringify(score))
+
+    document.querySelector('.user-move').innerHTML=
+      userChoice? `your choice is ${userChoice}`:'';
+
+    document.querySelector('.computer-move').innerHTML=
+      computerChoice?` Computer choice is ${computerChoice}`:''; 
+
+    document.querySelector('.result').innerHTML=result||'';
+
+    document.querySelector('.score').innerHTML=score.displayScore() 
+
+  }
+</script>
+</body>
+</html> 

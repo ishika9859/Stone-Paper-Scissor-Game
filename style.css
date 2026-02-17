@@ -1,0 +1,43 @@
+body{
+      text-align: center;
+    }
+.images{
+  height: 350px;
+  border-radius: 200px;
+}
+button{
+  border: 0px;
+  border-radius: 200px;
+  margin: 5px;
+background-color: rgb(81, 185, 90);
+}
+.reset{
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  font-size: larger;
+}
+button:hover{
+  background-color: rgb(78, 249, 78);
+  cursor: pointer;
+}
+
+button:active{
+  transform: scale(0.95);
+}
+h1{
+  -webkit-text-stroke: 1px  black;
+}
+.red{
+ color: red;
+}
+.yellow{
+ color: yellow;
+}
+.blue{
+ color: rgb(100, 173, 250);
+}
+.green{
+  color:rgb(81, 185, 90) ;
+}
+
